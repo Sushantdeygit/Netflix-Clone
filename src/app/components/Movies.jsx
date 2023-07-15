@@ -19,10 +19,10 @@ const Movies = ({movie,title,love,rowId}) => {
     <div className='relative flex items-center group'>
         <MdChevronLeft onClick={slideLeft}className='text-black bg-white left-0 rounded-full absolute opacity-50 hover-opacity-100 cursor-pointer z-10 hidden group-hover:block' size={40}/>
         <div id={'slider'+rowId} className='w-full h-full overflow-x-scroll whitespace-nowrap scroll-smooth scrollbar-hide relative'>
-            {movie.map((item,id)=>{
+            {movie.map((item)=>{
                 return(
-                    <div className='w-[260px] sm:w-[200px] md:w-[240px] lg:w-[280px] inline-block cursor-pointer relative p-2 transform hover:scale-110 transition-all duration-300 ease-in-out'>
-                        <img fill id={item?.id} src={`${baseUrl}${item?.backdrop_path||item?.poster_path}`} 
+                    <div key={item?.id}className='w-[260px] sm:w-[200px] md:w-[240px] lg:w-[280px] inline-block cursor-pointer relative p-2 transform hover:scale-110 transition-all duration-300 ease-in-out'>
+                        <img fill src={`${baseUrl}${item?.backdrop_path||item?.poster_path}`} 
                         className='w-full h-auto block rounded'
                         alt={item?.title}/>
                         <div className='transition-all duration-300 ease-in-out absolute top-0 left-0 w-full h-full hover:bg-black/80 hover:opacity-100 opacity-0 text-white'>
