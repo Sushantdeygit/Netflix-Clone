@@ -25,7 +25,6 @@ const Movies = ({movie,title,love,rowId}) => {
                         <img fill src={`${baseUrl}${item?.backdrop_path||item?.poster_path}`} 
                         className='w-full h-auto block rounded'
                         alt={item?.title}/>
-                        {console.log(movie)}
                         <div className='transition-all duration-300 ease-in-out absolute top-0 left-0 w-full h-full hover:bg-black/80 hover:opacity-100 opacity-0 text-white'>
                             <p className='white-space-normal text-xs md:text-sm font-bold flex justify-center items-center h-full w-full text-center'>{item?.title}</p>
                             <p>{love?<FaHeart className='absolute top-4 left-4 text-gray-300'/>:<FaRegHeart className='absolute top-4 left-4 text-gray-300'/>}</p>
