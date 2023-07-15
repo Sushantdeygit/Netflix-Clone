@@ -28,7 +28,7 @@ const MovieDetails = ({movie,showPlayer,setShowPlayer,trailer}) => {
     <div className='w-full h-[550px] text-white mb-10'>
         <div className='w-full h-full'>
             <div className='absolute h-full w-screen bg-gradient-to-r from-black z-[1]'></div>
-               <Image data-aos='fade-zoom-in'data-aos-duration='1000'key={movie?.id}fill src={`${baseUrl}${movie?.backdrop_path||movie?.poster_path}`}
+               <Image data-aos='fade-zoom-in'data-aos-duration='1000'key={movie?.id}fill src={`${baseUrl}${movie?.backdrop_path}`}
                 className='object-cover'
                 alt={movie?.title}/>
             <div key={animationKey} data-aos='fade-right' data-aos-duration='1000' data-aos-delay='500' className='absolute w-full top-[20%] md:p-8 z-[2]'>
