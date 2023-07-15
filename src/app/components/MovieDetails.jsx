@@ -24,7 +24,7 @@ const MovieDetails = ({movie,showPlayer,setShowPlayer,trailer,setIsActive}) => {
     <div className='w-full h-[550px] text-white mb-10'>
         <div className='w-full h-full'>
             <div className='absolute h-full w-screen bg-gradient-to-r from-black z-[1]'></div>
-               <Image fill src={`${baseUrl}${movie?.backdrop_path||movie?.poster_path}`}
+               <Image key={movie?.id}fill src={`${baseUrl}${movie?.backdrop_path||movie?.poster_path}`}
                 className='object-cover'
                 alt={movie?.title}/>
             <div className='absolute w-full top-[20%] md:p-8 z-[2]'>
