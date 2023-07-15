@@ -2,7 +2,6 @@ import React from 'react'
 import { baseUrl } from '../utils/constant'
 import {FaHeart,FaRegHeart} from 'react-icons/fa'
 import {MdChevronLeft,MdChevronRight} from 'react-icons/md'
-import Image from 'next/image'
 
 const Movies = ({movie,title,love,rowId}) => {
 
@@ -23,9 +22,7 @@ const Movies = ({movie,title,love,rowId}) => {
             {movie.map((item)=>{
                 return(
                     <div key={item?.id}className='w-[260px] sm:w-[200px] md:w-[240px] lg:w-[280px] inline-block cursor-pointer relative p-2 transform hover:scale-110 transition-all duration-300 ease-in-out'>
-                        <Image  src={`${baseUrl}${item?.backdrop_path||item?.poster_path} `} 
-                        height={100}
-                        width={200}
+                        <img fill  src={`${baseUrl}${item?.backdrop_path||item?.poster_path} `} 
                         className='w-full h-auto block rounded'
                         alt={item?.title}/>
                         <div className='transition-all duration-300 ease-in-out absolute top-0 left-0 w-full h-full hover:bg-black/80 hover:opacity-100 opacity-0 text-white'>
