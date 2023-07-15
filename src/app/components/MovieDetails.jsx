@@ -1,14 +1,20 @@
 'use client'
-import React from 'react'
+import {useState,useMemo} from 'react'
 import Navbar from './Navbar'
 import { baseUrl } from '../utils/constant'
 import Image from 'next/image'
 import {AiFillInfoCircle,AiOutlineClose } from 'react-icons/ai'
 import dynamic from 'next/dynamic'
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 
 const ReactPlayer =dynamic(()=> import("react-player/lazy"),{ssr:false})
 
 const MovieDetails = ({movie,showPlayer,setShowPlayer,trailer}) => {
+  const [animationKey, setAnimationKey] = useState(0);
+  useMemo(()=>{
+    setAnimationKey(prevKey => prevKey + 1);
+  },[movie])
   const truncateStr=(str,len)=>{
     if(str?.length>len){
       return str.slice(0,len)+'...'
@@ -22,10 +28,10 @@ const MovieDetails = ({movie,showPlayer,setShowPlayer,trailer}) => {
     <div className='w-full h-[550px] text-white mb-10'>
         <div className='w-full h-full'>
             <div className='absolute h-full w-screen bg-gradient-to-r from-black z-[1]'></div>
-               <Image  key={movie?.id}fill src={`${baseUrl}${movie?.backdrop_path||movie?.poster_path}`}
+               <Image data-aos='fade-zoom-in'data-aos-duration='1000'key={movie?.id}fill src={`${baseUrl}${movie?.backdrop_path||movie?.poster_path}`}
                 className='object-cover'
                 alt={movie?.title}/>
-            <div className='absolute w-full top-[20%] md:p-8 z-[2]'>
+            <div key={animationKey} data-aos='fade-right' data-aos-duration='1000' data-aos-delay='500' className='absolute w-full top-[20%] md:p-8 z-[2]'>
               <h1 className='text-3xl md:text-4xl font-bold'>{movie?.title}</h1>
                 <div className='my-4'>
                 <button onClick={()=>{setShowPlayer(true);}} className='border bg-gray-300 text-black border-gray-300 py-2 px-5'>Play</button>

@@ -1,9 +1,13 @@
-import React from 'react'
+import {useEffect} from 'react'
 import { baseUrl } from '../utils/constant'
 import {FaHeart,FaRegHeart} from 'react-icons/fa'
 import {MdChevronLeft,MdChevronRight} from 'react-icons/md'
-
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 const Movies = ({movie,title,love,rowId}) => {
+    useEffect(()=>{
+        AOS.init()
+    },[])
 
     const slideLeft=()=>{
         var slider=document.getElementById('slider'+rowId);
@@ -22,7 +26,7 @@ const Movies = ({movie,title,love,rowId}) => {
             {movie.map((item)=>{
                 return(
                     <div key={item?.id}className='w-[260px] sm:w-[200px] md:w-[240px] lg:w-[280px] inline-block cursor-pointer relative p-2 transform hover:scale-110 transition-all duration-300 ease-in-out'>
-                        <img fill  src={`${baseUrl}${item?.backdrop_path||item?.poster_path} `} 
+                        <img data-aos='fade-right' data-aos-duration='1000' data-aos-once="true" fill  src={`${baseUrl}${item?.backdrop_path||item?.poster_path} `} 
                         className='w-full h-auto block rounded'
                         alt={item?.title}/>
                         <div className='transition-all duration-300 ease-in-out absolute top-0 left-0 w-full h-full hover:bg-black/80 hover:opacity-100 opacity-0 text-white'>
