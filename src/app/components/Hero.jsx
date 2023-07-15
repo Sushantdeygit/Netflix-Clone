@@ -6,7 +6,7 @@ import axios from 'axios'
 import requests from '../utils/requests'
 import Row from './Row'
 
-const Hero = ({post,setIsActive}) => {
+const Hero = ({post}) => {
     const[trailer,setTrailer]=useState('')
     const[movie,setMovie]=useState(null)
     const[showPlayer,setShowPlayer]=useState(false)
@@ -31,7 +31,7 @@ const Hero = ({post,setIsActive}) => {
     
   return (
     <div>
-      <MovieDetails post={post}movie={movie}trailer={trailer}showPlayer={showPlayer}setShowPlayer={setShowPlayer}setIsActive={setIsActive}/>
+      <MovieDetails post={post}movie={movie}trailer={trailer}showPlayer={showPlayer}setShowPlayer={setShowPlayer}/>
       <Row rowId='1' title='Trending' fetchData={requests.fetchTrending}/>
       <Row rowId='2' title='Top Rated'fetchData={requests.fetchTopRated}/>
       <Row rowId='3' title='Action 'fetchData={requests.fetchActionMovies}/>

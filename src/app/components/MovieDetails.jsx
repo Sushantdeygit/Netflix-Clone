@@ -1,16 +1,14 @@
+'use client'
 import React from 'react'
 import Navbar from './Navbar'
 import { baseUrl } from '../utils/constant'
 import Image from 'next/image'
 import {AiFillInfoCircle,AiOutlineClose } from 'react-icons/ai'
-import { Swiper, SwiperSlide } from 'swiper/react';
-import 'swiper/css';
-import { Autoplay } from 'swiper/modules';
 import dynamic from 'next/dynamic'
 
 const ReactPlayer =dynamic(()=> import("react-player/lazy"),{ssr:false})
 
-const MovieDetails = ({movie,showPlayer,setShowPlayer,trailer,setIsActive}) => {
+const MovieDetails = ({movie,showPlayer,setShowPlayer,trailer}) => {
   const truncateStr=(str,len)=>{
     if(str?.length>len){
       return str.slice(0,len)+'...'
@@ -24,13 +22,13 @@ const MovieDetails = ({movie,showPlayer,setShowPlayer,trailer,setIsActive}) => {
     <div className='w-full h-[550px] text-white mb-10'>
         <div className='w-full h-full'>
             <div className='absolute h-full w-screen bg-gradient-to-r from-black z-[1]'></div>
-               <Image key={movie?.id}fill src={`${baseUrl}${movie?.backdrop_path||movie?.poster_path}`}
+               <Image  key={movie?.id}fill src={`${baseUrl}${movie?.backdrop_path||movie?.poster_path}`}
                 className='object-cover'
                 alt={movie?.title}/>
             <div className='absolute w-full top-[20%] md:p-8 z-[2]'>
-              <h1 className='text-3xl md:text-3xl font-bold'>{movie?.title}</h1>
+              <h1 className='text-3xl md:text-4xl font-bold'>{movie?.title}</h1>
                 <div className='my-4'>
-                <button onClick={()=>{setShowPlayer(true);setIsActive(true)}} className='border bg-gray-300 text-black border-gray-300 py-2 px-5'>Play</button>
+                <button onClick={()=>{setShowPlayer(true);}} className='border bg-gray-300 text-black border-gray-300 py-2 px-5'>Play</button>
                 <button className='border rounded text-white border-gray-300 py-2 px-3 ml-5 bg-white/20 hover:bg-gray-200 hover:text-black'>
                   <AiFillInfoCircle className='inline-block mx-1' size={22}/>More Info</button>  
                 </div>
@@ -47,7 +45,7 @@ const MovieDetails = ({movie,showPlayer,setShowPlayer,trailer,setIsActive}) => {
             <span className="font-semibold">Play Trailer</span>
             <div
               className="cursor-pointer w-8 h-8 flex justify-center items-center rounded-lg opacity-50 hover:opacity-75 hover:bg-[#0F0F0F]"
-              onClick={() => {setShowPlayer(false);setIsActive(false)}}
+              onClick={() => {setShowPlayer(false);}}
             >
               <AiOutlineClose className="h-5" />
             </div>

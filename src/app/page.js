@@ -18,13 +18,13 @@ export default function Home({
       setUpdate((prev)=>
         isActive?0:prev+1
       )
-    },5000)
+    },8000)
     return()=>{clearTimeout(time)}
   },[update])
  
   return (
     <>
-      <Hero post={post}  setIsActive={setIsActive}/>
+      <Hero post={post}/>
     </>
   );
 }

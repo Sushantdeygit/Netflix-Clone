@@ -7,11 +7,11 @@ const Movies = ({movie,title,love,rowId}) => {
 
     const slideLeft=()=>{
         var slider=document.getElementById('slider'+rowId);
-        slider.scrollLeft=slider.scrollLeft -500;
+        slider.scrollLeft=slider.scrollLeft -700;
     }
     const slideRight=()=>{
         var slider=document.getElementById('slider'+rowId);
-        slider.scrollLeft=slider.scrollLeft +500;
+        slider.scrollLeft=slider.scrollLeft +700;
     }
   return (
     <div className='mx-5'>

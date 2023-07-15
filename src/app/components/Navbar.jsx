@@ -3,8 +3,6 @@ import Link from "next/link";
 import React from "react";
 import Logo from "./Logo";
 import Image from "next/image";
-
-
 import { BiSearch } from "react-icons/bi";
 import { BsBellFill } from "react-icons/bs";
 import { signOut } from "next-auth/react";
