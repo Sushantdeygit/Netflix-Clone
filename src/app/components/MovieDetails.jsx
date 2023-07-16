@@ -23,15 +23,15 @@ const MovieDetails = ({movie,showPlayer,setShowPlayer,trailer}) => {
     }
   }
   return (
-    <div className='h-[650px]'>
+    <div className='h-[650px] sm:h-[770px] xl:h-[850px] 2xl:h-[1050px] sm-min:h-[920px]'>
     <Navbar/>
-    <div className='w-full h-[550px] text-white mb-10'>
+    <div className='w-full h-[550px]  text-white mb-10'>
         <div className='w-full h-full'>
-            <div className='absolute h-full w-screen bg-gradient-to-r from-black z-[1]'></div>
+            <div className='absolute  h-full w-screen bg-gradient-to-r from-black z-[1]'></div>
                <Image data-aos='fade-zoom-in'data-aos-duration='1000'key={movie?.id}fill src={`${baseUrl}${movie?.backdrop_path}`}
                 className='object-cover'
                 alt={movie?.title}/>
-            <div key={animationKey} data-aos='fade-right' data-aos-duration='1000' data-aos-delay='500' className='absolute w-full top-[20%] md:p-8 z-[2]'>
+            <div key={animationKey} data-aos='fade-right' data-aos-duration='1000' data-aos-delay='500' className='absolute w-full top-[20%] sm-min:pl-2 md:p-8 z-[2]'>
               <h1 className='text-3xl md:text-4xl font-bold'>{movie?.title}</h1>
                 <div className='my-4'>
                 <button onClick={()=>{setShowPlayer(true);}} className='border bg-gray-300 text-black border-gray-300 py-2 px-5'>Play</button>
@@ -39,7 +39,7 @@ const MovieDetails = ({movie,showPlayer,setShowPlayer,trailer}) => {
                   <AiFillInfoCircle className='inline-block mx-1' size={22}/>More Info</button>  
                 </div>
                <p className=' text-gray-400 text-sm'>Released:{movie?.release_date}</p>
-               <p className='my-4 w-full md:max-w-[70%]lg:max-w-[50%] xl:max-w-[35%] text-gray-200'>{truncateStr(movie?.overview,160)}</p>
+               <p className='my-4 w-full sm-min:max-w-[50%]md:max-w-[70%]lg:max-w-[50%] xl:max-w-[35%] text-gray-200'>{truncateStr(movie?.overview,160)}</p>
             </div>
 
             <div

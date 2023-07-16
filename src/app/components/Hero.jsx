@@ -1,5 +1,5 @@
 'use client'
-import React from 'react'
+import React, { useMemo } from 'react'
 import { useState,useEffect } from 'react'
 import MovieDetails from './MovieDetails'
 import axios from 'axios'
@@ -13,7 +13,7 @@ const Hero = ({post}) => {
     const API_KEY = '9bee9cd2e83a06344bffc0e1a61bdab0'
     
     const mov =post[Math.floor(Math.random() * post.length)]
-    useEffect(()=>{
+    useMemo(()=>{
      axios.get(
       `https://api.themoviedb.org/3/movie/${mov?.id}?api_key=${API_KEY}&append_to_response=videos`
     ).then((response) =>{

@@ -25,9 +25,9 @@ const Movies = ({movie,title,love,rowId}) => {
         <div id={'slider'+rowId} className='w-full h-full overflow-x-scroll whitespace-nowrap scroll-smooth scrollbar-hide relative'>
             {movie.map((item)=>{
                 return(
-                    <div key={item?.id}className=' w-[260px] sm:w-[200px] md:w-[240px] lg:w-[280px] inline-block cursor-pointer relative p-2 transform hover:scale-105 transition-all duration-300 ease-in-out'>
+                    <div key={item?.id}className=' w-[260px] sm-min:w-[170px] sm:w-[200px] md:w-[240px] lg:w-[280px] inline-block cursor-pointer relative p-2 transform hover:scale-105 transition-all duration-300 ease-in-out'>
                         <img data-aos='fade-right' data-aos-duration='1000' data-aos-once="true" fill  src={`${baseUrl}${item?.backdrop_path} `} 
-                        className='w-full h-auto block rounded'
+                        className='w-full h-auto block rounded '
                         alt={item?.title}/>
                         <div className='transition-all duration-300 ease-in-out absolute top-0 left-0 w-full h-full hover:bg-black/80 hover:opacity-100 opacity-0 text-white'>
                             <p className='white-space-normal text-xs md:text-sm font-bold flex justify-center items-center h-full w-full text-center'>{item?.title}</p>

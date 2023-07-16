@@ -1,5 +1,5 @@
 'use client'
-import React,{ useState,useEffect}from'react';
+import React,{ useState,useEffect,useMemo}from'react';
 import { getServerSession } from 'next-auth'
 import requests from './utils/requests';
 import {getSession,useSession} from 'next-auth/react';
@@ -10,13 +10,12 @@ export default function Home({
 }) {
   const [post,setPost]=useState([])
   var [update,setUpdate]=useState(0)
-  const [isActive,setIsActive]=useState(false)
-  useEffect(()=>{
+  useMemo(()=>{
     axios.get(requests.fetchMoviePosters).then((response)=>(
       setPost(response.data.results)))
     const time=setTimeout(()=>{
       setUpdate((prev)=>
-        isActive?0:prev+1
+        prev+1
       )
     },8000)
     return()=>{clearTimeout(time)}
