@@ -20,7 +20,6 @@ const Navbar = () => {
             <li className="headerLink cursor-pointer font-semibold text-white hover:text-white">
               Home
             </li>
-
             <li className="headerLink">TV Shows</li>
             <li className="headerLink">Movies</li>
             <li className="headerLink">New & Popular</li>
