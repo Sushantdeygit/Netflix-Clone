@@ -1,8 +1,6 @@
 'use client'
 import React,{ useState,useEffect,useMemo}from'react';
-import { getServerSession } from 'next-auth'
 import requests from './utils/requests';
-import {getSession,useSession} from 'next-auth/react';
 import axios from 'axios';
 import Hero from './components/Hero';
 import { useStateContext } from './stateContext';

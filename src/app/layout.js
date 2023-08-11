@@ -2,7 +2,6 @@ import './globals.css'
 import { Inter } from 'next/font/google'
 import { StateProvider } from './stateContext'
 import Provider from './components/Provider'
-
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata = {
