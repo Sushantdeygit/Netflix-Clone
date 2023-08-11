@@ -14,19 +14,26 @@ const Hero = ({post}) => {
     
     const mov =post[Math.floor(Math.random() * post.length)]
     useMemo(()=>{
-     axios.get(
-      `https://api.themoviedb.org/3/movie/${mov?.id}?api_key=${API_KEY}&append_to_response=videos`
-    ).then((response) =>{
-        const data=response.data
-        console.log('data::',data)
-        const trailerKey = data.videos.results.findIndex(
-          (element) => element.type === "Trailer")
-        ;
-
-        const trailerURL = `https://www.youtube.com/watch?v=${data.videos?.results[trailerKey]?.key}`;
-        setTrailer(trailerURL);
-        setMovie(mov)
-      })
+      const func =async()=>{
+        try{
+          await axios.get(
+            `https://api.themoviedb.org/3/movie/${mov?.id}?api_key=${API_KEY}&append_to_response=videos`
+          ).then((response) =>{
+              const data=response.data
+              console.log('data::',data)
+              const trailerKey = data.videos.results.findIndex(
+                (element) => element.type === "Trailer")
+              ;
+      
+              const trailerURL = `https://www.youtube.com/watch?v=${data.videos?.results[trailerKey]?.key}`;
+              setTrailer(trailerURL);
+              setMovie(mov)
+            })
+        }catch(error){
+          console.log(error);
+        }
+      }
+     func()
     },[post])
     
   return (
