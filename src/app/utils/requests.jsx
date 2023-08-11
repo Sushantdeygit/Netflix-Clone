@@ -1,5 +1,5 @@
 'use client'
-const API_KEY = process.env.NEXT_PUBLIC_TMDB_API_KEY
+const API_KEY = '9bee9cd2e83a06344bffc0e1a61bdab0'
 const BASE_URL = "https://api.themoviedb.org/3";
 
 
