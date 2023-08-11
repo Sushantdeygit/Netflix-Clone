@@ -13,7 +13,6 @@ export const authOptions = {
       clientId: process.env.NEXT_PUBLIC_GITHUB_CLIENT_ID,
       clientSecret: process.env.NEXT_PUBLIC_GITHUB_CLIENT_SECRET
     })
-    // ...add more providers here
   ],
   secret: process.env.NEXT_PUBLIC_NEXTAUTH_SECRET
 
